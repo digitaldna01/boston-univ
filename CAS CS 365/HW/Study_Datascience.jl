@@ -75,20 +75,76 @@ hline!([1], line=:dash, color=:black)
 print(ratios)
 
 ### Bernoulli Distribution
+### Create Bernoulli funtion with P = 0.5
 Base.@kwdef struct Bernoulli 
     p::Float64 = 0.5
 end    
 
-
+### trial is the input variable name
 function simulate(trial::Bernoulli)
     return rand() < trial.p ? 1 : 0
 end
 
 
 ber = Bernoulli()
-
+### 1 ~ 10
 for i in 1:10
     😺 = simulate(ber)
-    println("Result of 
-(ber.p) is $(😺)")
+    println("Result of $(i)-th simulation of Bernoulli with p=$(ber.p) is $(😺)")
 end
+
+ber_certainty = Bernoulli(1) ### Bernoulli function with P = 1
+
+for i in 1:10
+    😺 = simulate(ber_certainty)
+    println("Result of $(i)-th simulation of Bernoulli with p=$(ber_certainty.p) is $(😺)")
+end
+
+### Binomial Distribution
+Base.@kwdef struct BinomialRV
+    n::Int=1000
+    p::Float64 = 0.5
+end
+
+function simulate(binom_rv::BinomialRV)
+    successes = sum(rand() < binom_rv.p for _ in 1:binom_rv.n)
+    return successes
+end
+
+function generate_samples(binom_rv::BinomialRV, num_samples::Int)
+    return [simulate(binom_rv) for _ in 1:num_samples]
+end
+
+# Example usage: generate 1000 samples from a Binomial distribution with n=100 and p=0.5
+binom_rv = BinomialRV(n=100, p=0.5)
+samples = generate_samples(binom_rv, 1000)
+
+histogram(samples, bins=0:binom_rv.n, legend=false, xlabel="Number of Successes", ylabel="Frequesncy", title="Histogram of Binomial Distribution")
+
+### Discrete Uniform distribution
+Base.@kwdef struct DiscreteUniformRV # Special case of a discrete uar, could be a set rather than a range
+    a::Int=0 # Lower bound
+    b::Int=1 # Upper bound, for these default values this is a Bernoulli(0.5)
+end
+
+function simulate(du_rv::DiscreteUniformRV)
+    return rand(du_rv.a:du_rv.b) ### create one random integer between a and b values of DiscreteUniformRV struct
+end
+
+# Generate discrete uniform samples
+function generate_samples(du_rv::DiscreteUniformRV, num_samples::Int)
+    return [simulate(du_rv) for _ in 1:num_samples] ### generate array of number of random values
+end
+
+# Example usage: generate 1000 samples from a Discrete Uniform distribution with bounds of a = 1, b = 6
+du_rv = DiscreteUniformRV(a=1, b=6)
+samples = generate_samples(du_rv, 10000)
+
+# Calculate frequencies for each outcome
+frequencies = countmap(samples) ### frequencies is a dictionary of key int a ~ b, and values of frequency
+
+# Plot the bar chart
+bar(collect(du_rv.a:du_rv.b), [get(frequencies, x, 0) for x in du_rv.a:du_rv.b], 
+    legend=false, xlabel="Value", ylabel="Frequesncy",
+    title="Bar Chart of Discrete Uniform Distribution")
+
