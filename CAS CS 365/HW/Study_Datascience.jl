@@ -39,6 +39,7 @@ ylabel!("\$ p_{HEAD} \$")
 die = 1:6
 n_tosses = 10000
 random_tosses = rand(die, n_tosses) ## random_tosses is the array itself
+print(random_tosses)
 prob = Dict{Int64, Float64}()
 
 for side in die
@@ -56,19 +57,38 @@ println(maximum(values_list)/minimum(values_list))
 bar(keys_list, values_list, xlabel="sides", ylabel="probability", title="Empirical probability", ylims=(0,0.2))
 hline!([1/6], line=:dash, color=:black)
 
-###
-die_tosses = union((10:10:100), (200:100:1000))
+### For increment try of die toes(10, 20, 30, ..., 100, 200, 300, ... 1000) plot the ration of max and min proabability of sides
+die_tosses = union((10:10:100), (200:100:1000)) ### union makes (10, 20, 30, ... 100, 200, 300, ... 1000)
 
 ratios = Float64[]
 
 for n_tosses in die_tosses
     random_tosses = rand(die, n_tosses)
     prob = Dict(side => count(==(side), random_tosses)/n_tosses for side in die)
+    print(prob)
     values_list = collect(values(prob))
     push!(ratios, maximum(values_list)/minimum(values_list))
 end
 
-
-
 plot(die_tosses, ratios,  legend=false, xlims=(1, 1100), ylims=(0, 10), yticks=0:0.5:10, line=:line, marker=:circle, markersize=5, linewidth=4) 
 hline!([1], line=:dash, color=:black)
+print(ratios)
+
+### Bernoulli Distribution
+Base.@kwdef struct Bernoulli 
+    p::Float64 = 0.5
+end    
+
+
+function simulate(trial::Bernoulli)
+    return rand() < trial.p ? 1 : 0
+end
+
+
+ber = Bernoulli()
+
+for i in 1:10
+    😺 = simulate(ber)
+    println("Result of 
+(ber.p) is $(😺)")
+end
