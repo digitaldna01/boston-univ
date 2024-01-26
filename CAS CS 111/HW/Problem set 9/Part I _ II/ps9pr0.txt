@@ -1,0 +1,11 @@
+﻿Problem Set 9, Problem 0
+Put your response to the reading below.
+IMPORTANT: Your entire response should fit on this page.
+
+
+1. In the conference paper on pivot searching, the authors point out that the approach may especially help particular types of professionals, e.g., it would allow doctors “to search on the context (symptoms) of other patients, thus discovering diagnoses, treatments and other relevant information” and would allow lawyers to “leverage a context search tool based on cases, allowing them to search on client name, arguments made, resources cited, and then seeing the contexts in which they were applied.” Do you find these imagined applications believable and/or compelling? Could you imagine other endeavors where context-based searches would be even more beneficial?
+
+
+
+
+In my opinion, this type of usage is definitely believable. In the Article, YouPivot is working as an extension or the user OS to be part of the system and work as a small data background to record what you do with your mobile technology. In this way, for example from the question, doctors would work much more efficiently with this program to search for one unique patient with certain symptoms from millions of patients who had the doctor. This would be possible for the program. Also, this program would be really good for the company which is sorting the file or organized order. It can help sort out things so easily.

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://www.cs.bu.edu/courses/cs111/final_practice.html -->
+<html class="gr__cs_bu_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Final Exam Practice Problems — CS 111, Boston University</title>
+
+<meta name="description" content="Course website for CS 111, Boston University.">
+<link rel="stylesheet" href="./Final Exam Practice Problems — CS 111, Boston University_files/style.css">
+<link rel="icon" type="image/x-icon" href="http://www.cs.bu.edu/courses/cs111/img/favicon.ico">
+<link rel="mask-icon" href="http://www.cs.bu.edu/courses/cs111/img/111.svg" color="#cc0000">
+<script src="./Final Exam Practice Problems — CS 111, Boston University_files/respond.min.js"></script>
+<script src="./Final Exam Practice Problems — CS 111, Boston University_files/html5shiv.js"></script>
+<script src="./Final Exam Practice Problems — CS 111, Boston University_files/cs111.js"></script>
+<meta name="viewport" content="width=device-width, user-scalable=yes">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+</head>
+
+<body onload="setup();" data-gr-c-s-loaded="true">
+
+<div id="left">
+<a id="header" href="http://www.cs.bu.edu/courses/cs111/index.html">
+CS 111
+</a>
+<div id="subheader">
+Fall 2018
+</div>
+
+<nav>
+<ul>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/index.html">Home</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/files/syllabus.pdf">Syllabus</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/schedule.html">Schedule</a></li>
+    <li><a href="https://learn.bu.edu/">Lectures</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/labs/">Labs</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/problem_sets/">Problem Sets</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/staff.html">Staff</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/office_hours.html">Office Hours</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/resources.html">Resources</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/collaboration.html">Collaboration</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/policies.html">Policies</a></li>
+</ul>
+<ul class="external">
+    <li><a href="https://learn.bu.edu/">Blackboard</a></li>
+    <li><a href="http://www.cs.hmc.edu/csforall" target="_blank"><i>CS for All</i></a></li>
+    <li><a href="http://pythontutor.com/visualize.html#py=3" target="_blank">Python Tutor</a></li>    
+    <li><a href="https://piazza.com/bu/fall2018/cs111" target="_blank">Piazza</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/apollo" target="_blank">Apollo</a></li>
+</ul>
+</nav>
+
+</div><!-- end #left -->
+
+<div id="middle">
+<section class="main">
+<!---
+<div class="admonition note">
+<p class="admonition-title">Old version</p>
+<p>This is the CS 111 site as it appeared on December 21, 2016.</p>
+</div>
+--->
+<h1>Final Exam Practice Problems</h1>
+<p><em>As we get closer to the exam, solutions will be posted under</em> 
+<strong>Other Content</strong> <em>on Blackboard.</em></p>
+<ol>
+<li>
+<p>What does the following code print?</p>
+<div class="codehilite"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'a ='</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s">'b ='</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Using a memory diagram and a couple of sentences, explain the result
+    printed in problem number 1.</p>
+</li>
+<li>
+<p>What is printed when you invoke <code>prob3()</code> below?</p>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11</span>
+
+<span class="k">def</span> <span class="nf">prob3</span><span class="p">():</span>
+    <span class="n">food</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+    <span class="n">eat</span><span class="p">(</span><span class="n">food</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'food ='</span><span class="p">,</span> <span class="n">food</span><span class="p">)</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Using a memory diagram and a couple of sentences, explain the result 
+    printed in problem number 3.</p>
+</li>
+<li>
+<p>Write a function <code>create_2d</code> that takes as input two integers <code>height</code> 
+    and <code>width</code>, and that creates and returns a 2D list (i.e., a list of 
+    lists) with values that are the row number multiplied by the 
+    column number. For example:</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">create_2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Write a function <code>add_one</code> that takes an input <code>grid</code> that is a 2D list 
+    (a list of lists). Your function should add 1 to each element of
+    <code>grid</code>, but it should not return anything. For example:</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">my_grid</span> <span class="o">=</span> <span class="n">create_2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">add_one</span><span class="p">(</span><span class="n">my_grid</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_grid</span>
+<span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Create a Python class named <code>Phonebook</code> with a single attribute called
+    <code>entries</code>. Begin by including a constructor that initializes 
+    <code>entries</code> to be an empty dictionary. </p>
+</li>
+<li>
+<p>Next add a method called <code>add_entry</code> that takes a string
+    representing a person’s name and an integer representing the
+    person’s phone number and that adds an entry to the <code>Phonebook</code>
+    object’s dictionary in which the key is the name and the value is
+    the number. For example:</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">book</span> <span class="o">=</span> <span class="n">Phonebook</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">book</span><span class="o">.</span><span class="n">add_entry</span><span class="p">(</span><span class="s">'Turing'</span><span class="p">,</span> <span class="mi">6173538919</span><span class="p">)</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Add a method named <code>contains</code> to your <code>Phonebook</code> class. It should take
+    a parameter <code>name</code> and return <code>True</code> if <code>name</code> is present in the 
+    phonebook, and <code>False</code> otherwise. For example:</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">book</span> <span class="o">=</span> <span class="n">Phonebook</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">book</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s">'Turing'</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">book</span><span class="o">.</span><span class="n">add_entry</span><span class="p">(</span><span class="s">'Turing'</span><span class="p">,</span> <span class="mi">6173538919</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">book</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s">'Turing'</span><span class="p">)</span>
+<span class="bp">True</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Write another method for your <code>Phonebook</code> class called <code>number_for</code>
+    that takes a parameter <code>name</code> and returns the phone number for <code>name</code>
+    in the called <code>Phonebook</code> object. It should return <code>-1</code> if <code>name</code> is not
+    found. Here is an example:</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">book</span> <span class="o">=</span> <span class="n">Phonebook</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">book</span><span class="o">.</span><span class="n">add_entry</span><span class="p">(</span><span class="s">'Turing'</span><span class="p">,</span> <span class="mi">6173538919</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">book</span><span class="o">.</span><span class="n">add_entry</span><span class="p">(</span><span class="s">'Hopper'</span><span class="p">,</span> <span class="mi">6174951000</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">book</span><span class="o">.</span><span class="n">number_for</span><span class="p">(</span><span class="s">'Turing'</span><span class="p">)</span>
+<span class="mi">6173538919</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">book</span><span class="o">.</span><span class="n">number_for</span><span class="p">(</span><span class="s">'Hopper'</span><span class="p">)</span>
+<span class="mi">6174951000</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">book</span><span class="o">.</span><span class="n">number_for</span><span class="p">(</span><span class="s">'Codd'</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">1</span>
+</pre></div>
+
+
+<p><em>Hint:</em> Consider using your <code>contains</code> method from problem 9!</p>
+</li>
+<li>
+<p>Create a Python class called <code>Triangle</code>. The constructor for this class
+    should take two arguments, <code>base</code> and <code>height</code>, and store those values
+    in appropriately named attributes. In addition, you should add a 
+    method called <code>area</code> that computes and returns the area of the 
+    triangle. (The area of a triangle is 0.5 times the product of its
+    base and height.) For example:</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">tri</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tri</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
+<span class="mf">6.0</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Add a method to your <code>Triangle</code> class that enables you 
+    print a <code>Triangle</code> object in a readable way. For example:</p>
+<div class="codehilite"><pre>&gt;&gt;&gt; tri = Triangle(3, 4)
+&gt;&gt;&gt; print(tri)
+triangle with base 3 and height 4
+</pre></div>
+
+
+</li>
+<li>
+<p>Add a method to your <code>Triangle</code> class that will allow you to use the
+    <code>==</code> operator to test if two <code>Triangle</code> objects are equal–i.e., if 
+    they have the same base and height. For example:</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">tri1</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tri2</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tri3</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tri1</span> <span class="o">==</span> <span class="n">tri2</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tri1</span> <span class="o">==</span> <span class="n">tri3</span>
+<span class="bp">False</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Write a function called <code>main</code> that creates three triangle objects
+    <code>tri1</code> (with base 3 and height 4), <code>tri2</code> (with base 6 and height
+    6), and <code>tri3</code> (also with base 3 and height 4). The function
+    should print the three objects and their areas. Next, it should
+    test whether <code>tri1</code> and <code>tri2</code> are equal and report the
+    result. Finally, it should test whether <code>tri1</code> and <code>tri3</code> are
+    equal and report the result.  Your function should take full
+    advantage of the <code>Triangle</code> methods you have written. Here is the
+    desired output:</p>
+<div class="codehilite"><pre>&gt;&gt;&gt; main()
+tri1: triangle with base 3 and height 4 (area = 6.0)
+tri2: triangle with base 6 and height 6 (area = 18.0)
+tri3: triangle with base 3 and height 4 (area = 6.0)
+tri1 and tri2 are not equal
+tri1 and tri3 are equal
+</pre></div>
+
+
+</li>
+<li>
+<p>Write a <em>subclass</em> of <code>Triangle</code> called <code>EquilateralTriangle</code>. 
+    Its constructor should take a single parameter <code>side</code> representing
+    the length of a side. However, the new class should <em>not</em> have
+    any new attributes. Rather, it should use the attributes that
+    are inherited from <code>Triangle</code>, and you should initialize those
+    attributes by calling the superclass constructor and passing it the
+    appropriate values. (You should approximate the height of the triangle 
+    as 0.866 times the side length.) For example:</p>
+<div class="codehilite"><pre>&gt;&gt;&gt; tri1 = EquilateralTriangle(6)
+&gt;&gt;&gt; print(tri1)
+triangle with base 6 and height 5.196
+</pre></div>
+
+
+</li>
+<li>
+<p>Override the appropriate method in <code>EquilateralTriangle</code> so that
+    printing an <code>EquilateralTriangle</code> object produces an output that
+    looks like the following:</p>
+<div class="codehilite"><pre>&gt;&gt;&gt; tri1 = EquilateralTriangle(6)
+&gt;&gt;&gt; print(tri1)
+equilateral triangle with side 6
+</pre></div>
+
+
+</li>
+<li>
+<p>Construct a deterministic finite state machine that accepts all
+    bit strings that contains three ones in a row – i.e., all bit
+    strings that include the pattern <code>111</code> somewhere in the input –
+    and that rejects all other bit strings.</p>
+</li>
+</ol>
+</section>
+
+<footer>
+Last modified on December  7, 2018.
+</footer>
+
+</div>
+
+<div id="right">
+</div>
+
+
+
+
+</body></html>

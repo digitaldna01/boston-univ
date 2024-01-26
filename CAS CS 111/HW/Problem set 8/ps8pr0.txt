@@ -1,0 +1,11 @@
+﻿Problem Set 8, Problem 0
+Put your response to the reading below.
+IMPORTANT: When you are done, you must download the file as plain-text, not as a PDF.
+Use File->Download->Plain Text.
+
+
+1. The article claims that researchers have been “fine-tuning a computer system that is trying to master semantics by learning more like a human.” Based on the article and your own experiences programming computers (in circuit diagrams, assembly language, and Python), how do computers operate and learn differently from the way humans do? Are there any similarities?
+2. The NELL system had to have human help in order to avoid the cascade of mistaken conclusions from the statement, “I deleted my Internet cookies.” Do you believe machine-learning systems (like NELL or others) will always need human assistance such as this, or will they be able to overcome such problems in the future? Give a brief explanation for your thoughts.
+
+I think computer learns through the obvious form of information. When I started to code stuff in Python. We define the variable to let the computer to understand and run the function with it. But the Human especially language, I think we are learning throughout and most of it with repeating the sentence structures and speaking & listening and writing. We heard the same word at least 10,000 times from the parents to understand what is that mean when we were babies. And also the implication is different. When a human uses English, we use the same word to express different meanings. The meaning of the words can be changed as how we use different helper or sentence structure. However, there are simple similarities between human and computer learning language. Once we learn it. Then we won’t misuse it. Once we understand it, I will figure out the right time to use it.  
+Maybe I am optimistic, but I think eventually Computer will catch up on the learning process. It still needs human help to debug some language, but once we fix it, then it will imply the correct answer along with the mistake and it will be improved. I do not know how long it will be fixed or improved to become a perfect computer, but I am sure that once in the future it will be close to perfect learner
