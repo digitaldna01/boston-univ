@@ -1,0 +1,9 @@
+#
+# example1.txt
+#
+
+00   read r1           # get # from user and store it in r1
+01   read r2           # ditto, for register r2
+02   mul r3 r1 r2      # r3 = r1 * r2
+03   write r3          # write out (print) the contents of r3
+04   halt              # stop here
