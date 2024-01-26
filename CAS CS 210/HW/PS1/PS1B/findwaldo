@@ -1,0 +1,44 @@
+#!/bin/bash
+#set -x
+
+# Find waldo stream from input waldo puzzle
+
+# Take waldo puzzle from the first argument
+puzzle=$1
+
+if [[ -z $puzzle ]]; then
+   echo "USAGE: findWaldo <puzzleprogram>"
+   exit -1
+fi
+
+# each waldo puzzle has 100pages (0-99)
+pages=100
+
+# Let's find Waldos!
+
+for ((i=0; i<$pages;i++));
+    do
+    output=$(./$puzzle $i 2> errorfile)
+
+    # check waldo statement from standard output
+    numoutput=$(echo "$output" | grep -i waldo |wc -l)
+
+    # check waldo statment from standard error
+    numerror=$(cat errorfile | grep -i waldo | wc -l)
+
+    # check waldo statment from file content
+    numfileline=$(find ./PuzzleDir/ -type f -exec cat {} + | grep -i waldo | wc -l )
+
+    # check file name waldo
+    numfilename=$(find ./PuzzleDir/ -type f | grep -i waldo | wc -l)
+    
+    if [[ $numoutput -gt 0 || $numerror -gt 0 || $numfileline -gt 0 || $numfilename -gt 0 ]]; then
+	echo "$puzzle $i $numoutput $numerror $numfileline $numfilename"
+    fi
+    
+    # remove errorfile
+    rm errorfile
+    # remove directory
+    rm -r PuzzleDir/
+done
+
