@@ -30,7 +30,19 @@ end
 
 selected_xticks = [coin_tosses[1], coin_tosses[5], coin_tosses[10], coin_tosses[15], coin_tosses[end-1], coin_tosses[end]]
 
-plot(coin_tosses, p, legend=false, xlims=(1, 10200), ylims=(0, 1), yticks=0:0:1:1, line=:line, marker=:circle)
+plot(coin_tosses, p, legend=false, xlims=(1, 10200), ylims=(0, 1), yticks=0:0:1:1, line=:line, marker=:circle, xticks=selected_xticks, color=:blue)
 hline!([0.5], line=:dash, color=:black)
 xlabel!("#Coin tosses")
 ylabel!("\$ p_{HEAD} \$")
+
+## Simulation of die rolls and create a bar chart to display the observed frequencies for each face of the die
+die = 1:6
+n_tosses = 10000
+random_tosses = rand(die, n_tosses)
+prob = Dict{Int64, Float64}()
+
+for side in die
+    prob[side] = count(==(side), random_tosses) / n_tosses
+end
+
+println(prob)
