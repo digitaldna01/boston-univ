@@ -30,7 +30,7 @@ end
 
 selected_xticks = [coin_tosses[1], coin_tosses[5], coin_tosses[10], coin_tosses[15], coin_tosses[end-1], coin_tosses[end]]
 
-plot(coin_tosses, p, legend=false, xlims=(1, 10200), ylims=(0, 1), yticks=0:0:1:1, line=:line, marker=:circle, xticks=selected_xticks, color=:blue)
+plot(coin_tosses, p,  legend=false, xlims=(1, 10200), ylims=(0, 1), yticks=0:0.1:1, line=:line, marker=:circle, markersize=5, linewidth=4) 
 hline!([0.5], line=:dash, color=:black)
 xlabel!("#Coin tosses")
 ylabel!("\$ p_{HEAD} \$")
@@ -38,11 +38,37 @@ ylabel!("\$ p_{HEAD} \$")
 ## Simulation of die rolls and create a bar chart to display the observed frequencies for each face of the die
 die = 1:6
 n_tosses = 10000
-random_tosses = rand(die, n_tosses)
+random_tosses = rand(die, n_tosses) ## random_tosses is the array itself
 prob = Dict{Int64, Float64}()
 
 for side in die
     prob[side] = count(==(side), random_tosses) / n_tosses
 end
 
-println(prob)
+println(prob) 
+
+### Represent in Histogram
+keys_list = collect(keys(prob))
+values_list = collect(values(prob))
+
+println(maximum(values_list)/minimum(values_list))
+
+bar(keys_list, values_list, xlabel="sides", ylabel="probability", title="Empirical probability", ylims=(0,0.2))
+hline!([1/6], line=:dash, color=:black)
+
+###
+die_tosses = union((10:10:100), (200:100:1000))
+
+ratios = Float64[]
+
+for n_tosses in die_tosses
+    random_tosses = rand(die, n_tosses)
+    prob = Dict(side => count(==(side), random_tosses)/n_tosses for side in die)
+    values_list = collect(values(prob))
+    push!(ratios, maximum(values_list)/minimum(values_list))
+end
+
+
+
+plot(die_tosses, ratios,  legend=false, xlims=(1, 1100), ylims=(0, 10), yticks=0:0.5:10, line=:line, marker=:circle, markersize=5, linewidth=4) 
+hline!([1], line=:dash, color=:black)
