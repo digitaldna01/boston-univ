@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# My simple terminal screen saver script
+
+
+
+# lines holds the siae of the terminal window in lines
+lines=$1
+# columns holds the size of the terminal in columns
+columns=$2
+# display delay from the argument
+delay=$3
+
+if [[ -z $lines || -z $columns || -z $delay ]]; then
+   echo "USAGE: saver <lines><columns><delay>"
+   exit -1;
+   else echo "saver takes $lines lines, $columns columns, $delay delay";
+fi
+
+# test the one liner
+date; sleep 2; clear; date; sleep 2; clear
+
+# An infinite loop and a for loop
+
+while true;do
+      for ((i=0; i<lines;i++)); do
+      	  clear
+	  for((j=0; j <i; j++)); do echo; done
+	  cols=$(($RANDOM % $columns))
+	  for ((j=0; j<cols; j++)); do echo -n '';done
+	  date
+	  sleep $delay
+	  done
+done

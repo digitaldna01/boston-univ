@@ -1,0 +1,18 @@
+.PHONY: clean
+
+example_mov: example_mov.o
+	ld -g example_mov.o -o example_mov
+
+example_mov.o: example_mov.s
+	as -g example_mov.s -o example_mov.o
+
+example_addtwo: example_addtwo.o
+	ld -g example_addtwo.o -o example_addtwo
+
+example_addtwo.o: example_addtwo.s
+	as -g example_addtwo.s -o example_addtwo.o
+
+# use `make clean` to cleanup 
+# clean target removes all build files
+clean:
+	-rm -f $(wildcard *.o example_mov example_addtwo)
