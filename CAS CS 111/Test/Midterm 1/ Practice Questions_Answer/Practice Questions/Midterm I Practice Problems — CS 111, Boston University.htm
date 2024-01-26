@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://www.cs.bu.edu/courses/cs111/midterm1_practice.html -->
+<html class="gr__cs_bu_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Midterm I Practice Problems — CS 111, Boston University</title>
+
+<meta name="description" content="Course website for CS 111, Boston University.">
+<link rel="stylesheet" href="./Midterm I Practice Problems — CS 111, Boston University_files/style.css">
+<link rel="icon" type="image/x-icon" href="http://www.cs.bu.edu/courses/cs111/img/favicon.ico">
+<link rel="mask-icon" href="http://www.cs.bu.edu/courses/cs111/img/111.svg" color="#cc0000">
+<script src="./Midterm I Practice Problems — CS 111, Boston University_files/respond.min.js"></script>
+<script src="./Midterm I Practice Problems — CS 111, Boston University_files/html5shiv.js"></script>
+<script src="./Midterm I Practice Problems — CS 111, Boston University_files/cs111.js"></script>
+<meta name="viewport" content="width=device-width, user-scalable=yes">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+</head>
+
+<body onload="setup();" data-gr-c-s-loaded="true">
+
+<div id="left">
+<a id="header" href="http://www.cs.bu.edu/courses/cs111/index.html">
+CS 111
+</a>
+<div id="subheader">
+Fall 2018
+</div>
+
+<nav>
+<ul>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/index.html">Home</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/files/syllabus.pdf">Syllabus</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/schedule.html">Schedule</a></li>
+    <li><a href="https://learn.bu.edu/">Lectures</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/labs/">Labs</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/problem_sets/">Problem Sets</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/staff.html">Staff</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/office_hours.html">Office Hours</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/resources.html">Resources</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/collaboration.html">Collaboration</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/policies.html">Policies</a></li>
+</ul>
+<ul class="external">
+    <li><a href="https://learn.bu.edu/">Blackboard</a></li>
+    <li><a href="http://www.cs.hmc.edu/csforall" target="_blank"><i>CS for All</i></a></li>
+    <li><a href="http://pythontutor.com/visualize.html#py=3" target="_blank">Python Tutor</a></li>    
+    <li><a href="https://piazza.com/bu/fall2018/cs111" target="_blank">Piazza</a></li>
+    <li><a href="http://www.cs.bu.edu/courses/cs111/apollo" target="_blank">Apollo</a></li>
+</ul>
+</nav>
+
+</div><!-- end #left -->
+
+<div id="middle">
+<section class="main">
+<!---
+<div class="admonition note">
+<p class="admonition-title">Old version</p>
+<p>This is the CS 111 site as it appeared on December 21, 2016.</p>
+</div>
+--->
+<h1>Midterm I Practice Problems</h1>
+<p><em>Solutions will be posted under</em> <strong>Other Content</strong> <em>on Blackboard as we get 
+closer to the exam.</em></p>
+<ol>
+<li>
+<p>Given the string <code>s = 'Columbus'</code>, evaluate the following:</p>
+<ol>
+<li><code>s[0]</code></li>
+<li><code>s[0:1]</code></li>
+<li><code>s[1:]</code></li>
+<li><code>s[-1]</code></li>
+<li><code>s[3: :-1]</code></li>
+<li><code>s[2: :2]</code></li>
+</ol>
+</li>
+<li>
+<p>Given the list <code>myList = [3, 2, -1, [4, 7], 5]</code>, evaluate the following:</p>
+<ol>
+<li><code>myList[0]</code></li>
+<li><code>myList[0:1]</code></li>
+<li><code>myList[-1]</code></li>
+<li><code>myList[3]</code></li>
+<li><code>myList[:2]</code></li>
+<li><code>myList[2: :2]</code></li>
+</ol>
+</li>
+<li>
+<p>Evaluate the following:</p>
+<ol>
+<li><code>'a' in 'backache'</code></li>
+<li><code>[1, 2, 3] + [[11, 13, 12][1]] + [22, 33, 44, 55][1:]</code></li>
+<li><code>[3 for x in range(6)]</code></li>
+<li><code>[2*y + 1 for y in [1, 3, 5, 7]]</code></li>
+<li><code>[x for x in range(3, 10) if x % 2 == 0]</code></li>
+<li><code>[len(w) for w in ['Go', 'Terriers']]</code></li>
+</ol>
+</li>
+<li>
+<p>Write a function <code>count_ones(s)</code> that takes in a string <code>s</code> of <code>'0'</code>s and
+    <code>'1'</code>s and returns the number of <code>'1'</code>s in the input.</p>
+</li>
+<li>
+<p>Write a function <code>swap_bits(s)</code> that takes in a string <code>s</code> of <code>'0'</code>s and 
+    <code>'1'</code>s and returns a string in which each bit in <code>s</code> has been 
+    swapped/replaced with the other bit. For example, <code>swap_bits('101011')</code> 
+    should return <code>'010100'</code>.</p>
+</li>
+<li>
+<p>Write a function <code>num_divisors(n)</code> that returns the number of integers 
+    from 1 to <code>n</code> (inclusive) that divide <code>n</code> evenly. For example, 
+    <code>num_divisors(42)</code> should return <code>8</code>, because 1, 2, 3, 6, 7, 14, 21, 
+    and 42 are all divisors of 42.</p>
+</li>
+<li>
+<p>Use the above <code>num_divisors(n)</code> function in order to write a function
+    <code>most_divisors(lst)</code> that takes in a list of integers <code>lst</code> and 
+    returns the integer from that list with the most divisors. For
+    instance, <code>most_divisors([2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])</code> 
+    should return <code>12</code>.</p>
+</li>
+<li>
+<p>Write a function <code>count_transitions(s)</code> that takes in a string <code>s</code> of 
+    <code>'0'</code>s and <code>'1'</code>s and returns the number of times there is a transition 
+    from a <code>'0'</code> to a <code>'1'</code> or vice-versa in that input string. For example,
+    <code>count_transitions('1110110000')</code> should return <code>3</code>.</p>
+</li>
+<li>
+<p>Write a function <code>longest_string(lst)</code> that takes in a list of strings 
+    <code>lst</code> as input and returns the longest string from that list.
+    For example, <code>longest_string(['short', 'longer', 'sesquipedalian'])</code>
+    should return <code>'sesquipedalian'</code>.</p>
+</li>
+<li>
+<p>Write a function <code>cycle(s, n)</code> that takes in a string <code>s</code> of <code>'0'</code>s and 
+    <code>'1'</code>s and an integer <code>n</code> and returns the string in which <code>s</code> has 
+    shifted its last character to the initial position <code>n</code> times. For 
+    example, <code>cycle('1110110000', 2)</code> should return <code>'0011101100'</code>.</p>
+</li>
+<li>
+<p>What is printed by the following working Python program?</p>
+<div class="codehilite"><pre>def dog(x):
+    print('in dog, x is', x)
+    y = cat(x - 1) + cat(x + 2)
+    print('in dog, y is', y)
+    return y
+
+def cat(y):
+    print('in cat, y is', y)
+    x = rat(y * 2) + 3
+    print('in cat, x is', x)
+    return x
+
+def rat(x):
+    print('in rat, x is', x)
+    return 2 * x
+
+y = dog(3)
+print('at this level, y is', y)
+</pre></div>
+
+
+</li>
+<li>
+<p>What is printed by the following working Python program?</p>
+<div class="codehilite"><pre>def mystery(x):
+    print('x is', x)
+    if x &lt; 1:
+        return 2
+    else:
+        p = 6 - mystery(x - 1)
+        print('p is', p)
+        return p
+
+y = mystery(3)
+print('y is', y)
+</pre></div>
+
+
+</li>
+</ol>
+</section>
+
+<footer>
+Last modified on October  5, 2018.
+</footer>
+
+</div>
+
+<div id="right">
+</div>
+
+
+
+
+</body></html>
