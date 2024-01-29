@@ -222,3 +222,131 @@ histogram(samples, bins=0:maximum(samples), legend=false,
 # Plot a vertical line at the expected value 1/p
 vline!([1/geom_rv.p], label="Expected value", color=:red)
 
+### NEGATIVE BINOMIAL RANDOM VARIABLE
+@kwdef struct NegativeBinomialRV
+    r::Int=1        # Number of failures until stopping, by default we set it a Geom(p)
+    p::Float64=0.1  # Probability of success
+end
+
+
+# Simulate function for a Negative Binomial random variable
+function simulate(negbin_rv::NegativeBinomialRV)
+    return rand(NegativeBinomial(negbin_rv.r, negbin_rv.p))
+end
+
+# Generate negative binomial samples
+function generate_samples(negbin_rv::NegativeBinomialRV, num_samples::Int)
+    return [simulate(negbin_rv) for _ in 1:num_samples]
+end
+
+# Example usage: generate 1000 samples from a Negative Binomial distribution with r=3, p=0.5
+negbin_rv = NegativeBinomialRV(r=3, p=0.1)
+samples = generate_samples(negbin_rv, 10000)
+
+# Calculate the empirical mean of the samples
+empirical_mean = mean(samples)
+
+# Plot the histogram
+histogram(samples, bins=0:maximum(samples)+1, legend=false,
+          xlabel="Number of Successes", ylabel="Frequency",
+          title="Histogram of Negative Binomial Distribution")
+
+# Plot a vertical line at the expected value r/p
+vline!([negbin_rv.r/negbin_rv.p], label="Mean value", color=:red)
+vline!([mean(samples)], label="Expected value", color=:black)
+
+### Gaussian Distribution
+@kwdef struct GaussianRV
+    μ::Float64=0  # Mean
+    σ²::Float64=1  # Variance
+end
+
+function simulate(gaussian_rv::GaussianRV)
+    σ = sqrt(gaussian_rv.σ²)  # Standard deviation is the square root of the variance
+    return rand(Normal(gaussian_rv.μ, σ)) # package function
+end
+
+function generate_samples(gaussian_rv::GaussianRV, num_samples::Int)
+    return [simulate(gaussian_rv) for _ in 1:num_samples]
+end
+
+gaussian_rv = GaussianRV(μ=0, σ²=10)
+samples = generate_samples(gaussian_rv, 10000)
+
+empirical_mean = mean(samples)
+
+# Plot the histogram
+histogram(samples, bins=50, legend=false,
+          xlabel="Value", ylabel="Frequency",
+          title="Histogram of Gaussian Distribution")
+
+# Plot a vertical line at the mean μ
+vline!([gaussian_rv.μ], label="Mean", color=:red)
+
+
+### LAPLACE DISTRIBUTION
+@kwdef struct LaplaceRV
+    μ::Float64=0  # Mean
+    b::Float64=1  # scale parameter
+end
+ 
+function simulate(laplace_rv::LaplaceRV)
+    return rand(Laplace(laplace_rv.μ, laplace_rv.b))
+end
+
+function generate_samples(laplace_rv::LaplaceRV, num_samples::Int)
+    return [simulate(laplace_rv) for _ in 1:num_samples]
+end
+
+laplace_rv = LaplaceRV(μ=0, b=1)
+samples = generate_samples(laplace_rv, 10000)
+
+
+histogram(samples, bins=50, legend=false,
+          xlabel="Value", ylabel="Frequency",
+          title="Histogram of Laplace Distribution")
+
+vline!([laplace_rv.μ], label="Mean", color=:red)
+
+
+### BETA DISTRIBUTION
+using Distributions
+using Plots
+
+# Number of samples to draw
+num_samples = 10000
+
+# Define parameters for the beta distributions
+params = [(1, 1), (2, 5), (5,2), (2, 20)]
+
+# Create beta distribution objects with the specified parameters
+distributions = [Beta(a, b) for (a, b) in params]
+
+# Generate samples and plot histograms for each set of parameters
+histograms = []
+for dist in distributions
+    samples = rand(dist, num_samples)
+    push!(histograms, histogram(samples, bins=50, alpha=0.6, label="a=
+(dist.β)"))
+end
+
+# Combine the histograms into a single plot
+plot(histograms..., layout=(2,2), legend=:topright, xlabel="Value", ylabel="Frequency") 
+
+### COMPARE GAUSSIAN and LAPLACE DISTRIBUTION
+function draw_distributions(x)
+    normal_dist = pdf.(Normal(0, 1), x)
+    uniform_dist = pdf.(Uniform(-1, 1), x)
+    laplace_dist = pdf.(Laplace(0, 1), x)
+
+    plot(x, normal_dist, color="blue", linestyle=:solid, label="Gaussian")
+    plot!(x, uniform_dist, color="green", linestyle=:dash, label="Uniform")
+    plot!(x, laplace_dist, color="red", linestyle=:dot, label="Laplace")
+
+    ylims!(0, 0.61)
+    xlabel!("x")
+    ylabel!("$p(x)") 
+end
+
+x = -4:0.01:4
+draw_distributions(x)
