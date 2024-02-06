@@ -350,3 +350,101 @@ end
 
 x = -4:0.01:4
 draw_distributions(x)
+
+### Algorithm for Estimating π using 2d uniform random variables
+function approximate_pi(n_exp=100)
+    df = DataFrame(x=[], y=[], inside=[]) # Use DataFrame to make array of x, y coordinate and distance from the center point to acknowledge inside the circle
+    for i in 1:n_exp
+        x, y = rand(), rand()
+        push!(df, (x, y, (x-0.5)^2 + (y-0.5)^2 <= 0.5^2)) # for 3rd attribute push
+    end
+    pi_estimate = 4 * mean(df[!, :inside])
+    println("π estimate ", pi_estimate)
+    return pi_estimate, df
+end
+
+n_exp = 2000
+pi_estimate, df = approximate_pi(n_exp)
+
+colors = [flag ? :red : :blue for flag in df[!, :inside]]
+
+scatter(df[!, :x], df[!, :y], color=colors, xlims=(-0.01, 1.01), ylims=(-0.01, 1.01), label="Points", title="Estimating π", aspect_ratio=:equal)
+plot!(0:0.01:1, x -> sqrt(0.5^2 - (x - 0.5)^2) + 0.5, color=:black, label="circle")
+plot!(0:0.01:1, x -> -sqrt(0.5^2 - (x - 0.5)^2) + 0.5, color=:black, label="")
+
+### Monty Hall Problem
+N = 10000 # we repeat the simulation N times
+M = 10 # and we will show what happened the first M times 
+
+doors = [1, 2, 3]
+
+door_with_car = rand(doors, N)
+println("Placing the car behind one door:\t", join(door_with_car[1:M], " ")) # Show first M places of Car
+
+# player makes a first guess about the door that contains the car
+first_guess = rand(doors, N)
+println("Player chooses one door:\t\t", join(first_guess[1:M], " "))
+
+# Function to select a door different from the chosen ones
+function select_other(chosen, doors)
+    return setdiff(doors, chosen)[1]
+end
+
+ 
+revealed_door = [select_other([first_guess[i], door_with_car[i]], doors) for i in 1:N]
+println("Host opens other door with no car:\t", join(revealed_door[1:M], " "))
+
+second_guess_A = first_guess
+println("\nStrategy A, player keeps first guess:\t", join(second_guess_A[1:M], " "))
+success_A = (second_guess_A .== door_with_car)
+println("Result:\t\t\t\t\t", join((x -> x ? 'W' : 'L').(success_A[1:M]), " "))
+
+# Strategy B: player switches to the remaining door
+second_guess_B = [select_other([first_guess[i], revealed_door[i]], doors) for i in 1:N]
+println("\nStrategy B, player switches:\t\t", join(second_guess_B[1:M], " "))
+success_B = (second_guess_B .== door_with_car)
+println("Result:\t\t\t\t\t", join((x -> x ? 'W' : 'L').(success_B[1:M]), " "))
+
+# calculate the success rate for each strategy
+success_rate_A = sum(success_A) / N
+success_rate_B = sum(success_B) / N
+
+println("\nSuccess rate of Non-Switch Strategy A: ", success_rate_A)
+println("Success rate of Switch Strategy B: ", success_rate_B)
+
+### Online Hiring Problem
+function online_maximum(scores, k)
+    n = length(scores) # number of candidates
+    bestscore = maximum(scores[1:k]) # best score among the first k candidates
+    
+    best_position = k  
+    for i = k+1:n
+        if scores[i] > bestscore || i==n
+            bestscore = scores[i]
+            best_position = i
+            break 
+        end
+    end
+    
+    return bestscore == maximum(scores)
+
+end
+
+# Example Score
+scores = [1,2,10,4,7,6,8]     
+# for which k will we get true? 
+
+using Base.MathConstants: e
+
+f(x, n) = (x / n) * log(n / x)
+
+# Set the value of n
+n = 100
+
+x_values = 1:1:n
+
+y_values = f.(x_values, n)
+
+plot(x_values, y_values, label="f(x) = x/n * ln(n/x)", xlabel="x", ylabel="f(x)")
+
+vline!([n/e], label="x = n/e", color=:red)
