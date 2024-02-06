@@ -1,0 +1,19 @@
+A) How many fields does a Gu ess object have? If a client has a Guess object g, how would it obtain the values of its fields?
+
+- Guess object has two fields, row and column. If a client has a Guess object g, it will use the accessor methods calling (getRow() and getColumn()) to access the values of its fields. 
+
+B) Once a Guess object has been created, is it possible for a client to change the values of the fields? Why or why not?
+
+- it is  not possible for clients to change Guess object fields. Clients can use Mutator methods to change the values of the fields, bit Guess class does not have the Mutator methods to alter. 
+
+C) What fields in a Board object are used to keep track of the ships on the board, and what does each of them represent?
+
+- the fields in a board objects that used to keep track of the ships on the board is "shipRemaining", "Status", "ShipAt"
+- "ShipRemainin" keep tracks of numbers of unsunk ships. "Status" keep track of status of each position on the board. "ShipAt" keep track of the ship located at each position.  
+
+D) Let’s say that a client wants to determine whether the position (r, c)–where r and c are integers–is the location of a prior hit or a prior miss on the Board object b. Write the single method call using the variables r, c, and b that the should the client make. What will the value returned by this call mean?
+
+- Guess g = new Guess(r, c);
+  applyGuess(g)
+
+
