@@ -448,3 +448,29 @@ y_values = f.(x_values, n)
 plot(x_values, y_values, label="f(x) = x/n * ln(n/x)", xlabel="x", ylabel="f(x)")
 
 vline!([n/e], label="x = n/e", color=:red)
+
+### Marginal Distribution
+using LinearAlgebra: dot
+
+# Entropy of random variable
+function entropy(probabilities::Vector{Float64})
+    -dot(probabilities, log.(probabilities))
+end
+
+# Entropy of joint Distribution
+function joint_entropy(joint_probabilities::Matrix{Float64})
+    -sum(joint_probabilities .* log.(joint_probabilities))
+end
+
+# Example usage:
+# Single variable X with probabilities for each state
+prob_X = [0.2, 0.3, 0.5]
+prob_X = [0.2, 0.3, 0.2, 0.1, 0.1, 0.1]
+entropy_X = entropy(prob_X)
+
+# Joint distribution of two variables X and Y
+joint_prob_XY = [0.1 0.1 0.1; 0.1 0.2 0.1; 0.05 0.05 0.2]
+entropy_XY = joint_entropy(joint_prob_XY)
+
+println("Entropy of X: $entropy_X")
+println("Joint Entropy of X and Y: $entropy_XY")
