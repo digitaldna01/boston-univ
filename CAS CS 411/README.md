@@ -4,4 +4,4 @@
 Introduction to the construction of reliable software. Topics may include software tools, software testing methodologies, retrofitting, regression testing, structured design and structured programming, software characteristics and quality, complexity, entropy, deadlock, fault tolerance, formal proofs of program correctness, chief program teams, and structured walk-throughs.
 
 * * *
-[CS411 Syllabys](syllabus/SE%20Syllabus.pdf)
+[CS411 Syllabus](syllabus/SE%20Syllabus.pdf)
