@@ -1,2 +1,11 @@
+
+
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
 # Google Drive file cache
 .DS_Store
