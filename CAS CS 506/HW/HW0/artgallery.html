@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Jay's Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=GFS+Didot&family=Montserrat+Alternates&family=Roboto+Slab:wght@400;700&family=Ropa+Sans:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="gallery/css/bootstrap.min.css" media="all">
+  <link rel="stylesheet" href="gallery/css/style.css" media="all">
+  <link rel="stylesheet" href="gallery/css/gallery.css" media="all">
+  <link rel="stylesheet" href="gallery/css/animation.css" media="all">
+</head>
+
+<body class="gl-page-scaleUpCenter" data-bs-spy="scroll">
+  <!--
+==================================================
+Header Section Start
+================================================== -->
+  <section class="top-bar animated-header sticky-top" style="margin: 0px; border-bottom: 2px  solid black;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: 15px 15%;">
+                    <!-- Navbar Brand-->
+                    <a class="navbar-brand" href="index.html">
+                        <span>JAY</span>
+                        <!-- <img src="../images/logo.png" alt="logo"> -->
+                    </a>
+                    
+                    <!-- Navbar -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">About Me
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="work-experience.html">Work</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="projects.html">Projects</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="assignments.html">Assignments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+  <div class="container-fluid">
+
+    <section id="hs" class="container gx-0" style="margin-top: 100px; margin-bottom: 100px">
+
+      <div id="hs-cover" class="container-fluid" style="margin-bottom: 250px">
+        <div class="parent-rel">
+          <div class="col-9">
+            <img id="hs-cover-photo" src="images/gallery/cover.png" class="img-fluid" onmouseover="hover(this)" onmouseout="unhover(this)" alt="" style="cursor:pointer">
+          </div>
+          <div class="col-4 hs-cover-text-box">
+            <div class="container p-3">
+              <p class="text-wrap font-mont tit-sm white text-uppercase">Welcome to my Portfolio</p>
+              <p class="text-wrap py-3 font-gfs tit-xl white text-cap">Design is where different worlds meet,<br>turning diverse perspectives into a shared experience</p>
+              <div>
+                <span class="txt-xs white text-uppercase">find more</span>
+                <span class="material-icons txt-xs white">south</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="library" class="container-fluid " style="margin-bottom: 250px">
+        <div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-3 py-2 text-wrap tit-xl font-gfs text-cap">Visual Art Minor<br>Portfolio</div>
+            <div class="col-5 text-wrap font-mont txt-md lh-base">
+              <p>When I reflect on my path in art, I am reminded of a single moment—a spark that fueled my passion and drove me to discover the endless intersections of creativity and technology.</p>
+            </div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+        <div class="container-fluid" style="height:220px">
+          <div class="row">
+            <div class="col-6"></div>
+            <div class="col-5 vertical-box">
+              <div class="rotate-box">
+                <p class="my-3 font-gfs tit-md text-wrap text-cap lh-lg">Sometimes, light dances on everyday objects, transforming them into works of art.
+                  <img src="source/icons/long_arrow.svg" class="img-fluid ms-1">
+                </p>
+              </div>
+            </div>
+            <div class="col-1"></div>
+          </div>
+        </div>
+        <div class="my-5">
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-4">
+              <img src="images/gallery/inner-circle.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-3">
+              <p class="pt-5 tit-md font-mont fw-bold lh-base">"Inner Circle" capture the spiral of personal connections, where each step down the staircase reveals a deeper layer of trust, understanding, and shared emotion.</p>
+              <p class="pt-3 font-mont txt-md lh-base">Amid the winding paths of the circular staircase, I lingered to capture a moment, knowing each step downward would draw closer to the heart of my shared connections</p>
+            </div>
+            <div class="col-4"></div>
+          </div>
+        </div>
+        <div>
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-4" style="margin-top:180px">
+              <p class="pt-5 pb-3 lead tit-md font-mont fw-bold lh-base">The Unexpected Lessons<br>of Skateboarding</p>
+              <p class="font-mont txt-md lh-base">
+                Skateboarding, often seen as just a fast way to get around or a thrilling sport, has been much more to me. When I moved to the U.S. and struggled with language barriers, skateboarding offered a unique form of connection. The skateboarding community became my second family, and our shared passion for skating bridged the gap where words failed.
+              </p>
+              <p class="font-mont txt-md lh-base">To me, skate parks aren't just concrete and steel; they're vibrant, living spaces where I found a way to express myself amidst a blend of cultures. The phrase "POP IT!" captures the exhilarating essence of skateboarding and, for me, symbolizes how skating has connected me with others and helped me navigate a new world.</p>
+            </div>
+            <div class="col-4" style="margin-top:180px">
+              <img src="images/gallery/skateboard.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2">
+              <div class="col-10">
+                <div class="hs-libr-photo-3">
+                  <img src="images/gallery/stil-life.jpg" class="img-fluid" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="vtn-day" class="container-fluid px-0" style="margin-bottom: 250px">
+        <div class="text-center" style="margin-bottom:160px">
+          <h1 class="tit-xl text-cap font-gfs" style="color:#134169;">“More Colors!”</h1>
+        </div>
+        <div id="vtn-page-1" class="container-fluid">
+          <div class="container-fulid" style="margin:120px 80px">
+            <div class="row">
+              <!--- photo -1 -->
+              <div class="col-6 d-flex flex-column">
+                <div class="">
+                  <div class="col-8 mx-auto mb-auto hs-vtn-photo-1">
+                    <img src="images/gallery/footprint.jpg" class="img-fluid" alt="">
+                  </div>
+                </div>
+                <div class="row mt-auto">
+                  <div class="col-2"></div>
+                  <div class="col-8">
+                    <p class="pt-5 pb-3 tit-md font-mont fw-bold lh-base">DMT! (Dive Myself To)</p>
+                    <p class="font-mont txt-md lh-base">Between 2020 and 2022, I reevaluate my future during my military service in Korea.  Rather than going along with the flow, I aimed to steer my own course. In my unit, I found comfort in a group of creatives who excelled at dance, music, painting, and programming. </p>
+                    <p class="font-mont txt-md lh-base">Our concept was DMT, which stands for "Do My Thing" and "Dive Into." This embodies my commitment to following my passions. With vibrant colors and varied circles in my art, I express my evolving emotional state and my unique journey.</p>
+                  </div>
+                  <div class="col-2"></div>
+                </div>
+              </div>
+              <!-- Photo -2 -->
+              <div class="col-6 d-flex flex-column">
+                <div class="mb-auto">
+                  <div class="col-8">
+                    <p class="pt-5 pb-3 tit-lg font-mont fw-bold lh-base text-cap">Cities & My Personal Mosaic</p>
+                    <p class="font-mont txt-md lh-base">Ever noticed how cities shape who you are? My artwork captures this journey, showcasing how places like the Han River, Boston, and Austin have molded my identity.</p>
+                      <p>With a mix of tape-crafted buildings and dynamic brushstrokes, it reflects my diverse experiences. The blend of abstract and realistic elements represents how these experiences come together to define who I am today.</p>
+
+                  </div>
+                </div>
+                <div class="mt-auto">
+                  <div class="col-10 hs-vtn-photo-2">
+                    <img src="images/gallery/dmt.jpg" class="img-fluid" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="vtn-quote" style=" margin: 140px auto">
+          <div class="text-center">
+            <span class="material-icons" style="font-size: 72px; transform:rotate(180deg)">format_quote</span>
+            <figure>
+              <blockquote class="blockquote font-gfs tit-xl">
+                <p class="text-wrap lh-base">“Drawing is the artist’s way of feeling the form.<br>The human body is a most complex and wonderful structure to understand and render. ”</p>
+              </blockquote>
+              <figcaption class="blockquote-footer txt-md pt-2">
+                By <cite title="Source Title">Frank J. Dover</cite>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div id="vtn-page-2" class="container-fluid">
+          <div class="row">
+            <!--- photo -3 -->
+            <div class="col-6">
+              <div class="row pb-5 mb-auto">
+                <div class="col-4"></div>
+                <div class="col-8 hs-vtn-photo-3">
+                  <img src="images/gallery/sketch-arm.png" class="img-fluid" alt="">
+                </div>
+              </div>
+              <div class="row py-5">
+                <div class="col-2"></div>
+                <div class="col-8">
+                  <p class="pt-5 pb-3 tit-lg font-mont fw-bold lh-base text-cap">Sketching the Human Form</p>
+                  <p class="pb-5 font-mont txt-md lh-base">Capturing the human body in art brings unique joy. Whether studying anatomy or sketching live models, I believe drawing people adds depth to my creative journey. It’s like uncovering humanity's essence through each stroke. I strive to make each drawing a reflection of both the subject's character and my evolving skills.</p>
+                </div>
+                <div class="col-2"></div>
+              </div>
+            </div>
+            <!--- photo -4 -->
+            <div class="col-6 d-flex flex-column">
+              <div class="mt-auto">
+                <img src="images/gallery/sketch-oldman.png" class="img-fluid" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="formal-dance" class="container-fluid">
+
+        <div id="fd-2" class="container-fluid parent-rel" style="margin-bottom:180px">
+          <div class="row">
+            <!-- photo -2,3,4 -->
+            <div class="col-6">
+              <!--- photo -2 -->
+              <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">
+                  <img src="images/gallery/sketch-back.png" class="img-fluid" alt="">
+                </div>
+              </div>
+              <!--- photo -3,4 -->
+              <div class="row pt-3">
+                <div class="col-8">
+                  <img src="images/gallery/sketch-feet.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-4">
+                  <img src="images/gallery/sketch-hand.png" class="img-fluid" alt="">
+                </div>
+              </div>
+            </div>
+            <!-- text -->
+            <div class="col-6 d-flex">
+              <div class="row align-items-center">
+                <div class="col-2 gx-0"></div>
+                <div class="col-6 gx-0">
+                  <p pb-3 class="font-gfs tit-2xl text-center text-capitalize">Life Drawing</p>
+                  <div class="p-2 shadow-lg font-ropa txt-md" style="background-color:white; line-height:1.75rem">
+                    <p>I focused on developing my ability to capture the human form with precision and expression. I honed my skills by practicing the most challenging aspects — the intricate anatomy of hands and feet and the muscular contours of a man’s back. By using a pencil, I aimed for a balance between accuracy and fluidity, such as the curve of a knuckle or tension in a tendon's line. Each drawing pushed me to improve my understanding of proportion, shading, and the human body's dynamic structure, deepening my artistic practice with every stroke.</p>
+                  </div>
+                </div>
+                <div class="col-4 gx-0"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-11 fd-2-bc" style="height:65vh; background-color: #376aa4"></div>
+        </div>
+        
+        <div id="down-icon" class="text-center" style="margin-bottom: 50px;">
+          <button id="backToTopBtn" class="align-middle">
+            <span class="material-icons align-middle" style="font-size:48px">keyboard_arrow_up</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="gallery/js/jquery.min.js" charset="utf-8"></script>
+  <script src="gallery/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+  <script src="gallery/js/gallery.js" charset="utf-8"></script>
+
+  <!-- jquery -->
+	<script src="plugins/jQurey/jquery.min.js"></script>
+	<!-- Form Validation -->
+    <script src="plugins/form-validation/jquery.form.js"></script> 
+    <script src="plugins/form-validation/jquery.validate.min.js"></script>
+	<!-- slick slider -->
+	<script src="plugins/slick/slick.min.js"></script>
+	<!-- bootstrap js -->
+	<script src="plugins/bootstrap/bootstrap.min.js"></script>
+	<!-- wow js -->
+	<script src="plugins/wow-js/wow.min.js"></script>
+	<!-- slider js -->
+	<script src="plugins/slider/slider.js"></script>
+	<!-- Fancybox -->
+	<script src="plugins/facncybox/jquery.fancybox.js"></script>
+	<!-- template main js -->
+	<script src="js/main.js"></script>
+</body>
+
+
+</html>

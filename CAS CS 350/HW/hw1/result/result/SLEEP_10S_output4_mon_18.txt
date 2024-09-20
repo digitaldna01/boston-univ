@@ -1,0 +1,70 @@
+Running iteration 1...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999844492
+ClockSpeed: 2599.984449
+Run 1 completed.
+---------------------
+Running iteration 2...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999823185
+ClockSpeed: 2599.982319
+Run 2 completed.
+---------------------
+Running iteration 3...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999815574
+ClockSpeed: 2599.981557
+Run 3 completed.
+---------------------
+Running iteration 4...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999812335
+ClockSpeed: 2599.981234
+Run 4 completed.
+---------------------
+Running iteration 5...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999809376
+ClockSpeed: 2599.980938
+Run 5 completed.
+---------------------
+Running iteration 6...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999817941
+ClockSpeed: 2599.981794
+Run 6 completed.
+---------------------
+Running iteration 7...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999826413
+ClockSpeed: 2599.982641
+Run 7 completed.
+---------------------
+Running iteration 8...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999834154
+ClockSpeed: 2599.983415
+Run 8 completed.
+---------------------
+Running iteration 9...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999831140
+ClockSpeed: 2599.983114
+Run 9 completed.
+---------------------
+Running iteration 10...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999850106
+ClockSpeed: 2599.985011
+Run 10 completed.
+---------------------

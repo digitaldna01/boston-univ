@@ -1,0 +1,14 @@
+Running iteration {1}...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999766781
+ClockSpeed: 2599.976678
+Run {1} completed.
+---------------------
+Running iteration {1}...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 25999877855
+ClockSpeed: 2599.987785
+Run {1} completed.
+---------------------

@@ -1,0 +1,14 @@
+Running iteration {1}...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 27934150952
+ClockSpeed: 2793.415095
+Run {1} completed.
+---------------------
+Running iteration {1}...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 25999591754
+ClockSpeed: 2599.959175
+Run {1} completed.
+---------------------

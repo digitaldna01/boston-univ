@@ -1,0 +1,7 @@
+Running iteration {1}...
+WaitMethod: SLEEP
+WaitTime: 10 0
+ClocksElapsed: 27934341538
+ClockSpeed: 2793.434154
+Run {1} completed.
+---------------------
