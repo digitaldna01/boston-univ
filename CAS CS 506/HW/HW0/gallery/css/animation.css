@@ -1,0 +1,46 @@
+/* animation sets */
+
+/* scale and fade */
+
+.gl-page-scaleUpCenter {
+	-webkit-animation: scaleUpCenter 2.0s ease-out both;
+	animation: scaleUpCenter 2.0s ease-out both;
+}
+
+.gl-page-rotateCarouselLeftIn {
+	-webkit-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+	-webkit-animation: rotateCarouselLeftIn .8s both ease;
+	animation: rotateCarouselLeftIn .8s both ease;
+}
+
+.gl-page-rotateCarouselRightIn {
+	-webkit-transform-origin: 100% 50%;
+	transform-origin: 100% 50%;
+	-webkit-animation: rotateCarouselRightIn .8s both ease;
+	animation: rotateCarouselRightIn .8s both ease;
+}
+
+/********************************* keyframes **************************************/
+
+
+@-webkit-keyframes scaleUpCenter {
+	from { opacity: 0; -webkit-transform: scale(.7); }
+}
+@keyframes scaleUpCenter {
+	from { opacity: 0; -webkit-transform: scale(.7); transform: scale(.7); }
+}
+
+@-webkit-keyframes rotateCarouselLeftIn {
+	from { opacity: .3; -webkit-transform: translateX(200%) scale(.4) rotateY(65deg); }
+}
+@keyframes rotateCarouselLeftIn {
+	from { opacity: .3; -webkit-transform: translateX(200%) scale(.4) rotateY(65deg); transform: translateX(200%) scale(.4) rotateY(65deg); }
+}
+
+@-webkit-keyframes rotateCarouselRightIn {
+	from { opacity: .3; -webkit-transform: translateX(-200%) scale(.4) rotateY(-65deg); }
+}
+@keyframes rotateCarouselRightIn {
+	from { opacity: .3; -webkit-transform: translateX(-200%) scale(.4) rotateY(-65deg); transform: translateX(-200%) scale(.4) rotateY(-65deg); }
+}

@@ -1,0 +1,15 @@
+body{
+  height: 100vh;
+  width: 100%;
+  background-color: #134470;
+}
+
+.letter-paper{
+    height: auto;
+    background-color: #ffffff;
+}
+
+.child-ver-letter {
+  position: absolute;
+  top: 10%;
+}

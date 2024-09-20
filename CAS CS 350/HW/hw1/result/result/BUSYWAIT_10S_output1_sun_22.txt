@@ -1,0 +1,70 @@
+Running iteration 1...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 28931905264
+ClockSpeed: 2893.190526
+Run 1 completed.
+---------------------
+Running iteration 2...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 28931905528
+ClockSpeed: 2893.190553
+Run 2 completed.
+---------------------
+Running iteration 3...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 28931905226
+ClockSpeed: 2893.190523
+Run 3 completed.
+---------------------
+Running iteration 4...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 28931905432
+ClockSpeed: 2893.190543
+Run 4 completed.
+---------------------
+Running iteration 5...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 28931905278
+ClockSpeed: 2893.190528
+Run 5 completed.
+---------------------
+Running iteration 6...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 28931905298
+ClockSpeed: 2893.190530
+Run 6 completed.
+---------------------
+Running iteration 7...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 28931905518
+ClockSpeed: 2893.190552
+Run 7 completed.
+---------------------
+Running iteration 8...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 28931905520
+ClockSpeed: 2893.190552
+Run 8 completed.
+---------------------
+Running iteration 9...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 28931905578
+ClockSpeed: 2893.190558
+Run 9 completed.
+---------------------
+Running iteration 10...
+WaitMethod: BUSYWAIT
+WaitTime: 10 0
+ClocksElapsed: 28931905424
+ClockSpeed: 2893.190542
+Run 10 completed.
+---------------------
