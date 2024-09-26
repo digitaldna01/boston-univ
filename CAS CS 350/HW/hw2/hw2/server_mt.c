@@ -39,9 +39,15 @@
 #include <sched.h>
 #include <signal.h>
 
+/* Phtread header file */ 
+#include <pthread.h>
+
 /* Needed for wait(...) */
 #include <sys/types.h>
 #include <sys/wait.h>
+
+/* for termination flag */
+#include <stdbool.h> 
 
 /* Include struct definitions and other libraries that need to be
  * included by both client and server */
@@ -55,24 +61,111 @@
 /* 4KB of stack for the worker thread */
 #define STACK_SIZE (4096)
 
+/* Declare a global termination flag */
+volatile bool terminate_thread = false;
+
 /* Main logic of the worker thread */
 /* IMPLEMENT HERE THE MAIN FUNCTION OF THE WORKER */
+void* worker_main(void* arg){
+	(void)arg;
+	// Define the variable
+	struct timespec timestamp;
+
+	// stamp at which the worker entered the worker fucntion
+
+	// Output the string "[#WORKER#] <timestamp> Worker Thread Alive!"
+	clock_gettime(CLOCK_MONOTONIC, &timestamp);
+	printf("[#WORKER#] %f Worker Thread Alive!\n", TSPEC_TO_DOUBLE(timestamp));
+
+	// enter a forever loop and follow iteration
+	while(!terminate_thread){
+		// (1) busywait for exactly 1 second
+		get_elapsed_busywait(1, 0);
+
+		// (2) print out "[#WORKER#] <timestamp> Still Alive!"
+		clock_gettime(CLOCK_MONOTONIC, &timestamp);
+		printf("[#WORKER#] %f Worker Still Alive!\n", TSPEC_TO_DOUBLE(timestamp));
+
+		// (3) sleep for exactly 1 second, rinse and repeat
+		get_elapsed_sleep(1, 0);
+	}
+	return NULL;
+}
 
 /* Main function to handle connection with the client. This function
  * takes in input conn_socket and returns only when the connection
  * with the client is interrupted. */
-void handle_connection(int conn_socket)
-{
+void handle_connection(int conn_socket) {	
+	// define the variables
+	// child process variable
+	pthread_t thread;
+
+	// parent process variable
+	int recv_message, send_message;
+	struct request req;
+	struct response res;
+	struct timespec receipt_timestamp, completion_timestamp;
 
 	/* The connection with the client is alive here. Let's start
 	 * the worker thread. */
-
+	
 	/* IMPLEMENT HERE THE LOGIC TO START THE WORKER THREAD. */
-
+	if(pthread_create(&thread, NULL, worker_main, NULL) != 0){
+		ERROR_INFO();
+		perror("Error creating thread\n");
+		return;
+	}
+	
 	/* We are ready to proceed with the rest of the request
 	 * handling logic. */
 
 	/* REUSE LOGIC FROM HW1 TO HANDLE THE PACKETS */
+	while(1){
+		recv_message = recv(conn_socket, &req, sizeof(struct request), 0);
+
+		// stamp at which the server received the request
+		clock_gettime(CLOCK_MONOTONIC, &receipt_timestamp);
+
+		if(recv_message < 0) {
+			ERROR_INFO();
+			perror("Unable to read request");
+			break;
+		}
+
+		// Check if clients closed the socket
+		if(recv_message == 0){
+			// The requested number of bytes to receive from a stream socket is 0
+			break;
+		}
+
+		//busy wait requested length
+		get_elapsed_busywait(req.req_length.tv_sec, req.req_length.tv_nsec);
+
+		res.req_id = req.req_id;
+		res.reserved = 0;
+		res.ack = 0;
+
+		send_message = send(conn_socket, &res, sizeof(struct response), 0);
+		if(send_message < 0){
+			ERROR_INFO();
+			perror("Unable to send response");
+			close(conn_socket);
+			break;
+		}
+
+		// stamp at which the server complete the request
+		clock_gettime(CLOCK_MONOTONIC, &completion_timestamp);
+
+		printf("R%lu:%f,%f,%f,%f\n", req.req_id, TSPEC_TO_DOUBLE(req.req_timestamp), TSPEC_TO_DOUBLE(req.req_length), TSPEC_TO_DOUBLE(receipt_timestamp), TSPEC_TO_DOUBLE(completion_timestamp));
+	} 
+
+	// Signal the worker thread to terminate
+    terminate_thread = true;
+
+	if (pthread_join(thread, NULL) !=0){
+		ERROR_INFO();
+		perror("Error joining thread\n");
+	}
 }
 
 
@@ -151,5 +244,4 @@ int main (int argc, char ** argv) {
 
 	close(sockfd);
 	return EXIT_SUCCESS;
-
 }
