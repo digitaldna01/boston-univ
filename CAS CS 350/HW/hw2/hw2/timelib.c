@@ -30,6 +30,25 @@
 uint64_t get_elapsed_sleep(long sec, long nsec)
 {
 	/* IMPLEMENT ME! */
+	uint64_t start_clock, end_clock;
+	
+	// Initiate timespec struct
+	struct timespec sleep_time;
+	sleep_time.tv_sec = sec;
+	sleep_time.tv_nsec = nsec;
+
+	// function to snapshot start TSC
+	get_clocks(start_clock);
+
+	if(nanosleep(&sleep_time, NULL) == -1){
+		perror("Unable to nanosleep");
+		return EXIT_FAILURE;
+	};
+	
+	// funtion to snapshot end TSC
+	get_clocks(end_clock);
+	// return the difference between the second and first TSC value
+	return (end_clock - start_clock);
 }
 
 /* Return the number of clock cycles elapsed when waiting for
@@ -37,6 +56,11 @@ uint64_t get_elapsed_sleep(long sec, long nsec)
 uint64_t get_elapsed_busywait(long sec, long nsec)
 {
 	/* IMPLEMENT ME! */
+	struct timespec delay;
+	delay.tv_sec = sec;
+	delay.tv_nsec = nsec;
+
+	return busywait_timespec(delay);
 }
 
 /* Utility function to add two timespec structures together. The input
@@ -74,4 +98,36 @@ int timespec_cmp(struct timespec *a, struct timespec *b)
 uint64_t busywait_timespec(struct timespec delay)
 {
 	/* IMPLEMENT ME! (Optional but useful) */
+	uint64_t start_clock, end_clock;
+
+	// Initiate timespec struct
+	struct timespec begin_timestamp, current_time, target_time;
+
+	// Retrieve the current system time and save it to begin_timestamp
+	clock_gettime(CLOCK_MONOTONIC, &begin_timestamp);
+
+	// Add delay time to begin_timestamp to find out target time
+	target_time = begin_timestamp;
+	timespec_add(&target_time, &delay);
+
+	// Snapshot the start TSC value
+	get_clocks(start_clock);
+	
+	//wait given time
+	while(1){
+
+		// Retrieve the current system time
+		clock_gettime(CLOCK_MONOTONIC, &current_time);
+
+		// Compare the current time and target time and check if the target time is passed
+		if(timespec_cmp(&current_time, &target_time) >= 0){
+			break;
+		}
+	}
+
+	// Snapshot the end TSC value
+	get_clocks(end_clock);
+
+	// return the difference between the second and first TSC value
+	return (end_clock - start_clock);
 }

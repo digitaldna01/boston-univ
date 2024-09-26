@@ -43,3 +43,8 @@ struct response {
 	uint64_t reserved;
 	uint8_t ack;
 };
+
+struct request_meta {
+	struct request req;
+	struct timespec receipt_timestamp;
+};

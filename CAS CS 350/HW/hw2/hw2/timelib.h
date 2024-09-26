@@ -35,7 +35,15 @@
 
 /* Macro wrapper for RDTSC instruction */
 #define get_clocks(clocks)						\
-    /* IMPLEMENT ME! See lecture slides for inspiration. */
+    do {											\
+		uint32_t __clocks_hi, __clocks_lo;			\
+		__asm__ __volatile__("rdtsc" :				\
+							 "=a" (__clocks_lo),	\
+							 "=d" (__clocks_hi)		\
+						   ); 						\
+		clocks = (((uint64_t)__clocks_hi) << 32 ) | \
+				((uint64_t)__clocks_lo);			\
+	}while(0)
 
 /* Return the number of clock cycles elapsed when waiting for
  * wait_time seconds using sleeping functions */
