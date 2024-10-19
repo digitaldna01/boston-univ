@@ -5,7 +5,9 @@
 *.obj
 *.elf
 
+# Video files
+*.mov
+
 # Google Drive file cache
 .DS_Store
-CAS CS 506/HW/HW2/Assignment2.mov
-CAS CS 506/HW/HW4/Assignment4.mov
+
