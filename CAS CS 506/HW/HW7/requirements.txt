@@ -1,0 +1,6 @@
+Flask
+Flask-Session
+numpy
+matplotlib
+scikit-learn
+scipy
