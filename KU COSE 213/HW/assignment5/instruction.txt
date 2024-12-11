@@ -1,0 +1,50 @@
+Assignment 5. ADT General list 구현 (Doubly linked list + 정렬된(ordered) 선형리스트)
+
+주어진 소스파일(name5.c와 adt_dlist.c)을 완성한다.
+
+- 소스파일에는 함수의 원형(prototype)만 선언되어 있으며, 함수를 직접 정의해야 함
+
+- main 함수에 있는 주석을 제거하여 실행파일(name5)과 같이 실행되도록 수정해야 함
+
+- valgrind를 통해 메모리 누수(memory leak) 현상을 제거해야 함
+
+- 과제 설명에 대한 강의는 "강의자료 -> 8주차"에 있음
+
+- 실행방법: $ ./name5 파일명
+예) $ ./name5 names_short.txt
+
+- 실행 파일은 주어진 입력 파일(names_short.txt)에 포함된 이름(name)들을 doubly linked list에 순서를 유지하여 삽입한다. (이름순. 성별은 구별하지 않음)
+만약 이미 리스트에 저장된 이름인 경우 빈도(freq)를 합산한다.
+
+파일 입력이 완료되면, 사용자로부터 메뉴를 선택받는다.
+
+Q : 실행종료 (프로그램 종료 전에 리스트를 위해 할당한 메모리를 모두 해제해야 함)
+P : 화면에 (순방향으로) list를 출력한다. (이름(name), 빈도(freq)를 탭(tab)문자로 구분하여 출력)
+B : 화면에 역방향으로 list를 출력한다.
+S : 사용자가 입력한 문자열(이름)을 리스트에서 찾는다.
+D : 사용자가 입력한 문자열(이름)을 리스트에서 삭제한다.
+C : 리스트에 포함된 이름(노드)의 수를 출력한다.
+
+- 제출파일: adt_dlist.c, adt_dlist.h, name5.c, Makefile (파일명을 수정하지 말 것!)
+
+makefile과 adt_dlist.h은 수정할 필요가 없음
+
+- 제출마감: 11월 1일 23:59:00까지
+
+
+gcc -c name5.c =-> name5.o
+gcc -c adt_ddlist.C =-> adt_dlist.o
+gcc -o name5 adt_ddlist name5.o =-> name5 실행파일 만들어짐
+
+'make' 치면 알아서 컴파일 파일 만들고 링킹 해줌
+
+make clean =-> object랑 실행파일 다 지움
+
+adt_ddlist랑 adt_dlist.h파일은 tname이 사용되면 안된다
+List 구조체 보고 main함수 보기 
+
+create list -> cmpname 함수 정의 잘하기
+destroy list -> call back 함수 확인
+노드 추가 
+
+

@@ -1,0 +1,23 @@
+Assignment 8. AVL Tree구현 (문자열 자료형)
+주어진 소스파일(stravlt.c)을 완성한다.
+avl tree구현 목표
+
+- 소스파일에는 함수의 원형(prototype)만 선언되어 있으며, 함수를 직접 정의해야 함
+
+- main 함수에 있는 주석을 제거하여 실행 파일(stravlt)과 같이 실행되도록 수정해야 함
+
+- valgrind를 통해 메모리 누수(memory leak) 현상을 제거해야 함
+
+- 과제 설명에 대한 강의는 "강의자료 -> 13주차"에 있음
+
+- 실행 방법: ./stravlt 입력파일
+ (실행 예: ./stravlt words_ordered.txt)
+소스코드에서 아래와 같이 설정한 후 제출해야 함
+
+이 값을 마지막에 꼭 확잍할 것!
+#define SHOW_STEP 0
+#define BALANCING 1
+
+- 제출파일: stravlt.c (파일명을 수정하지 말 것!)
+
+- 제출마감: 12월 8일 23:59:00까지

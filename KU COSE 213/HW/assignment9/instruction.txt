@@ -1,0 +1,17 @@
+
+주어진 소스파일(permuterm_trie.c)을 완성한다.
+
+- 소스파일에는 함수의 원형(prototype)만 선언되어 있으며, 함수를 직접 정의해야 함
+
+- main 함수에 있는 주석을 제거하여 실행 파일(permuterm_trie)과 같이 실행되도록 수정해야 함
+
+- valgrind를 통해 메모리 누수(memory leak) 현상을 제거해야 함
+
+- 과제 설명에 대한 강의는 "강의자료 -> 14주차"에 있음 (wild-card search에 대한 영상도 함께 시청해야 함)
+
+- 실행 방법
+$ ./permuterm_trie words_ordered.txt
+
+- 제출 파일: permuterm_trie.c (파일명을 수정하지 말 것!) 
+
+- 제출마감: 12월 15일 23:59:00까지 (마감기한 준수)
