@@ -41,14 +41,3 @@ while t > 0:
         print("Yes")
     else:
         print("No")
-        
-        
-        
-        
-        # if b[l] >= a[i] + prev:
-        #     if (i != 0 and a[i] >= a[i-1]):
-        #         a[i] = min(a[i], b[l] - a[i])
-        #     else:
-        #         a[i] = b[l] - a[i]
-
-        # prev = a[i]
