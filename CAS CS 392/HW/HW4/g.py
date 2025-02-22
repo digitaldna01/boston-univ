@@ -9,9 +9,13 @@ while t > 0:
     for i in range(len(s)):
         if s[i] != '-':
             S += s[i]
+    
+    if len(S) != 10:
+        print("invalid")
+        continue
 
     #Invalid if s has 2 consecutive dashes
-    x = False
+    x = False # Flag to check if there are two consecutive - 
     for i in range(len(s)-1):
         if s[i]==s[i+1] and s[i+1]=='-':
             print("invalid")
@@ -31,7 +35,7 @@ while t > 0:
     if x: 
         continue
 
-    #Invalid if first/last character is a dash
+    #Invalid if first/last character is a dash 
     if s[0]=='-' or s[-1]=='-':
         print("invalid")
         continue
@@ -45,10 +49,10 @@ while t > 0:
 
     #Code for checksum digit: Assume correct
     sum = 0
-    for i in range(9):
+    for i in range(9): # d1 ~ d9까지 곱하고 더해서 계산
         sum += (10-i) * (ord(S[i]) - 48)
 
-    sum = (1100 - sum) % 11
+    sum = (1100 - sum) % 11 # Get the checksum
     if sum!=10 and S[9] != chr(sum + 48):
         print("invalid")
         continue
