@@ -77,21 +77,24 @@ class TwoLayerMLP(object):
     # Store the result in the scores variable, which should be an array of
     # shape (N, C).
     ###########################################################################
-    z1 = np.dot(X, W1) + b1  # 1st layer activation, N*H
+    z1 = np.dot(X, W1) + b1  # 1st layer activation, N*H 
 
     # 1st layer nonlinearity, N*H
     if self.activation == 'relu':
-        # [PLEASE IMPLEMENT]
-        raise NotImplementedError('ReLU forward not implemented')
+        hidden = np.max(0, z1)
     elif self.activation == 'sigmoid':
-        # [PLEASE IMPLEMENT]
-        raise NotImplementedError('Sigmoid forward not implemented')
+        hidden = 1 / (1 + np.exp(-z1))
     else:
         raise ValueError('Unknown activation type')
         
     # [PLEASE IMPLEMENT] 2nd layer activation, N*C
     # hint: involves W2, b2
-    scores = None  
+    z2 = np.dot(hidden, W2) + b2
+    
+    # Softmax function
+    a2 = np.exp(z2) / np.sum(np.exp(z2), axis = 1, keepdims=True)
+      
+    scores = a2  # Scores N*C 
     ###########################################################################
     #                            END OF YOUR CODE
     ###########################################################################
@@ -101,10 +104,10 @@ class TwoLayerMLP(object):
       return scores
 
     # cross-entropy loss with log-sum-exp
-    A = np.max(scores, axis=1) # N*1
-    F = np.exp(scores - A.reshape(N, 1))  # N*C
-    P = F / np.sum(F, axis=1).reshape(N, 1)  # N*C
-    loss = np.mean(-np.choose(y, scores.T) + np.log(np.sum(F, axis=1)) + A)
+    A = np.max(scores, axis=1) # N*1 All the preficted classes
+    F = np.exp(scores - A.reshape(N, 1))  # N*C the predicted one will be 0 and rests will be negative values
+    P = F / np.sum(F, axis=1).reshape(N, 1)  # N*C changed into positive values
+    loss = np.mean(-np.choose(y, scores.T) + np.log(np.sum(F, axis=1)) + A) 
     # add regularization terms
     loss += 0.5 * reg * np.sum(W1 * W1)
     loss += 0.5 * reg * np.sum(W2 * W2)
@@ -125,24 +128,22 @@ class TwoLayerMLP(object):
     ###########################################################################
 
     # output layer
-    dscore = None  # [PLEASE IMPLEMENT] partial derivative of loss wrt. the logits (dL/dz)
+    dscore = (scores - np.eye(C)[y]) / N  #  partial derivative of loss wrt. the logits (dL/dz)
     dW2 = np.dot(hidden.T, dscore)/N  # partial derivative of loss wrt. W2
     db2 = np.mean(dscore, axis=0)     # partial derivation of loss wrt. b2
 
     # hidden layer
-    dhidden = None 
+    dhidden = np.dot(dscore, W2.T) / N
     if self.activation == 'relu':
-        # [PLEASE IMPLEMENT]
-        raise NotImplementedError('ReLU backward not implemented')
+        dz1 = (dhidden > 0).astype(float)
     elif self.activation == 'sigmoid':
-        # [PLEASE IMPLEMENT]
-        raise NotImplementedError('Sigmoid backward not implemented')
+        dz1 = dhidden * (1 - dhidden)
     else:
         raise ValueError('Unknown activation type')
 
     # first layer
-    dW1 = None  # [PLEASE IMPLEMENT]
-    db1 = None  # [PLEASE IMPLEMENT]
+    dW1 = np.dot(X.T, dz1) / N   
+    db1 = np.mean(dz1, axis=0)
     ###########################################################################
     #                            END OF YOUR CODE
     ###########################################################################
