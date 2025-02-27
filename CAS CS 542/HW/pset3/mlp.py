@@ -81,7 +81,7 @@ class TwoLayerMLP(object):
 
     # 1st layer nonlinearity, N*H
     if self.activation == 'relu':
-        hidden = np.max(0, z1)
+        hidden = np.maximum(0, z1)
     elif self.activation == 'sigmoid':
         hidden = 1 / (1 + np.exp(-z1))
     else:
@@ -91,10 +91,10 @@ class TwoLayerMLP(object):
     # hint: involves W2, b2
     z2 = np.dot(hidden, W2) + b2
     
-    # Softmax function
-    a2 = np.exp(z2) / np.sum(np.exp(z2), axis = 1, keepdims=True)
+    # No need to make Softmax function, I took me so long to figure it out....
+    # a2 = np.exp(z2) / np.sum(np.exp(z2), axis = 1, keepdims=True)
       
-    scores = a2  # Scores N*C 
+    scores = z2  # Scores N*C 
     ###########################################################################
     #                            END OF YOUR CODE
     ###########################################################################
@@ -128,16 +128,17 @@ class TwoLayerMLP(object):
     ###########################################################################
 
     # output layer
-    dscore = (scores - np.eye(C)[y]) / N  #  partial derivative of loss wrt. the logits (dL/dz)
-    dW2 = np.dot(hidden.T, dscore)/N  # partial derivative of loss wrt. W2
+    dscore = (P - np.eye(C)[y])   #  partial derivative of loss wrt. the logits (dL/dz)
+    dW2 = np.dot(hidden.T, dscore) / N  # partial derivative of loss wrt. W2
     db2 = np.mean(dscore, axis=0)     # partial derivation of loss wrt. b2
 
     # hidden layer
-    dhidden = np.dot(dscore, W2.T) / N
+    dhidden = np.dot(dscore, W2.T) 
+    
     if self.activation == 'relu':
-        dz1 = (dhidden > 0).astype(float)
+        dz1 = dhidden * (z1 > 0).astype(float)
     elif self.activation == 'sigmoid':
-        dz1 = dhidden * (1 - dhidden)
+        dz1 = dhidden * hidden * (1 - hidden)
     else:
         raise ValueError('Unknown activation type')
 
@@ -148,9 +149,9 @@ class TwoLayerMLP(object):
     #                            END OF YOUR CODE
     ###########################################################################
 
-    grads['W2'] = dW2 + reg*W2
+    grads['W2'] = dW2 + reg * W2
     grads['b2'] = db2
-    grads['W1'] = dW1 + reg*W1
+    grads['W1'] = dW1 + reg * W1
     grads['b1'] = db1
     return loss, grads
 
