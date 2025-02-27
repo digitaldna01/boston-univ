@@ -251,9 +251,9 @@ class TwoLayerMLP(object):
     """
 
     ###########################################################################
-    # [PLEASE IMPLEMENT]
     # hint: it should be very easy
-    y_pred = None
+    scores = self.loss(X)
+    y_pred = np.argmax(scores, axis=1)
     ###########################################################################
 
     return y_pred
